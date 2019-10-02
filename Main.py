@@ -61,11 +61,16 @@ def main ():
 
     #### TRAINING
 
-    NUM_EPOCHS = 10
+    NUM_EPOCHS = 5
     NUM_STEPS = num_validation_samples / BATCH_SIZE
     model.fit(train_data, epochs=NUM_EPOCHS, validation_data=(validation_inputs, validation_targets),
               validation_steps=NUM_STEPS, verbose=2)
 
+
+
+    ##### TEST THE MODEL
+    test_loss,test_accuracy=model.evaluate(test_data)
+    print(test_loss,test_accuracy)
 
 if __name__ == '__main__':
     main()
