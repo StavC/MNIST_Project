@@ -44,12 +44,12 @@ def main ():
 
     input_size=784
     output_size=10
-    hidden_layer_size=100
+    hidden_layer_size=200
 
     model=tf.keras.Sequential([
                                 tf.keras.layers.Flatten(input_shape=(28,28,1)),
                                 tf.keras.layers.Dense(hidden_layer_size,activation='relu'),
-                                tf.keras.layers.Dense(hidden_layer_size,activation='relu'),
+                                tf.keras.layers.Dense(hidden_layer_size,activation='tanh'),
                                 tf.keras.layers.Dense(output_size,activation='softmax')
     ])
 
