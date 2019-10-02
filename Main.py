@@ -61,7 +61,7 @@ def main ():
 
     #### TRAINING
 
-    NUM_EPOCHS = 5
+    NUM_EPOCHS = 10
     NUM_STEPS = num_validation_samples / BATCH_SIZE
     model.fit(train_data, epochs=NUM_EPOCHS, validation_data=(validation_inputs, validation_targets),
               validation_steps=NUM_STEPS, verbose=2)
