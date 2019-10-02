@@ -2,6 +2,9 @@
 import  numpy as np
 import tensorflow as tf
 import tensorflow_datasets as tfds
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 
 def main ():
 
@@ -41,7 +44,7 @@ def main ():
 
     input_size=784
     output_size=10
-    hidden_layer_size=50
+    hidden_layer_size=100
 
     model=tf.keras.Sequential([
                                 tf.keras.layers.Flatten(input_shape=(28,28,1)),
@@ -54,11 +57,14 @@ def main ():
 
     #### CHOOSE THE OPTIMIZIER AND THE LOSS FUNCTION
 
-    mode
+    model.compile(optimizer='Adam',loss='sparse_categorical_crossentropy',metrics=['accuracy'])
 
+    #### TRAINING
 
-
-
+    NUM_EPOCHS = 5
+    NUM_STEPS = num_validation_samples / BATCH_SIZE
+    model.fit(train_data, epochs=NUM_EPOCHS, validation_data=(validation_inputs, validation_targets),
+              validation_steps=NUM_STEPS, verbose=2)
 
 
 if __name__ == '__main__':
